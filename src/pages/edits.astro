@@ -1,0 +1,37 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Edits Gallery – Before & After murder/rebirth">
+  <section class="min-h-screen py-32 px-6 bg-black">
+    <h1 class="text-7xl md:text-10xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-neonGreen via-electricPurple to-bloodRed">
+      EDITS GALLERY
+    </h1>
+
+    <p class="text-3xl text-center mt-8 mb-16">
+      Hover to see the murder → rebirth. Want yours savage'd? Chat the beast.
+    </p>
+
+    <!-- Masonry grid placeholders (add real images later) -->
+    <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+      <!-- Example item -->
+      <div class="break-inside-avoid rounded-xl overflow-hidden border border-electricPurple/40 hover:border-bloodRed transition">
+        <div class="relative group">
+          <img src="https://via.placeholder.com/600x800/000/fff?text=Before" alt="Before" class="w-full" />
+          <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <img src="https://via.placeholder.com/600x800/000/39FF14?text=After+Savage" alt="After" class="w-full" />
+          </div>
+        </div>
+        <p class="p-4 text-center text-neonGreen">@somecreator – profile pic rebirth</p>
+      </div>
+
+      <!-- Duplicate 5-6 more times with different placeholders -->
+    </div>
+
+    <div class="text-center mt-20">
+      <a href="https://wa.me/256752881573" class="px-16 py-8 bg-neonGreen text-black font-black text-3xl rounded-full hover:bg-electricPurple hover:text-white transition">
+        Get your edit murdered & reborn
+      </a>
+    </div>
+  </section>
+</MainLayout>

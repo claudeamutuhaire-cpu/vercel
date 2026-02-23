@@ -1,0 +1,55 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Paid Bots – Level up your game">
+  <section class="min-h-screen py-32 px-6 bg-black">
+    <h1 class="text-7xl md:text-10xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-neonGreen via-electricPurple to-bloodRed">
+      LEVEL UP – PAID BOTS
+    </h1>
+
+    <p class="text-3xl text-center mt-8 mb-16 max-w-4xl mx-auto">
+      Free is fun. Paid is god-mode. Custom memory, buttons, media handling, priority edits.
+    </p>
+
+    <!-- Packages grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div class="bg-purple-950/40 p-10 rounded-xl border border-neonGreen/50 hover:shadow-neon-glow transition text-center">
+        <h3 class="text-4xl font-black text-neonGreen">Starter Savage</h3>
+        <p class="text-5xl mt-6">$50–$100</p>
+        <ul class="mt-8 text-left text-xl space-y-4">
+          <li>Basic bot</li>
+          <li>1 custom vibe</li>
+          <li>Limited memory</li>
+        </ul>
+        <a href="#" class="mt-10 block px-8 py-5 bg-neonGreen text-black rounded-full hover:bg-electricPurple hover:text-white">Get Starter</a>
+      </div>
+
+      <div class="bg-purple-950/60 p-10 rounded-xl border border-electricPurple/70 hover:shadow-purple-glow transition text-center scale-110">
+        <h3 class="text-4xl font-black text-electricPurple">God Mode</h3>
+        <p class="text-5xl mt-6">$200–$500</p>
+        <ul class="mt-8 text-left text-xl space-y-4">
+          <li>Full memory</li>
+          <li>Buttons & media</li>
+          <li>Priority edits</li>
+        </ul>
+        <a href="#" class="mt-10 block px-8 py-5 bg-electricPurple text-white rounded-full hover:bg-bloodRed">Get God Mode</a>
+      </div>
+
+      <div class="bg-purple-950/40 p-10 rounded-xl border border-bloodRed/50 hover:shadow-red-glow transition text-center">
+        <h3 class="text-4xl font-black text-bloodRed">White Label Beast</h3>
+        <p class="text-5xl mt-6">$1,000+</p>
+        <ul class="mt-8 text-left text-xl space-y-4">
+          <li>Your brand name</li>
+          <li>Unlimited users</li>
+          <li>Full custom</li>
+        </ul>
+        <a href="#" class="mt-10 block px-8 py-5 bg-bloodRed text-white rounded-full hover:bg-neonGreen hover:text-black">Get White Label</a>
+      </div>
+    </div>
+
+    <p class="text-center mt-16 text-2xl">
+      Payments via Flutterwave, Pesapal, MoMo, Stripe. DM for custom deals.
+    </p>
+  </section>
+</MainLayout>
