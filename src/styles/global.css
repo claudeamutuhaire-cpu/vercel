@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+
+:root {
+  --neon-green: #39FF14;
+  --electric-purple: #C300FF;
+  --blood-red: #FF0033;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.glitch {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--neon-green);
+  text-shadow: 
+    0.05em 0 0 var(--electric-purple),
+    -0.03em -0.04em 0 var(--blood-red),
+    0.025em 0.04em 0 var(--blood-red);
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 0.05em 0 0 var(--electric-purple), -0.03em -0.04em 0 var(--blood-red); }
+  14% { text-shadow: 0.05em 0 0 var(--electric-purple), -0.03em -0.04em 0 var(--blood-red); }
+  15% { text-shadow: -0.05em 0 0 var(--blood-red), 0.03em 0.04em 0 var(--electric-purple); }
+  /* Add more for distortion effect */
+}
