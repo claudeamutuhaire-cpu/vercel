@@ -1,16 +1,11 @@
-import { getCollection } from 'astro:content';
+// src/pages/rss.xml.js
 import rss from '@astrojs/rss';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-export async function GET(context) {
-	const posts = await getCollection('blog');
-	return rss({
-		title: SITE_TITLE,
-		description: SITE_DESCRIPTION,
-		site: context.site,
-		items: posts.map((post) => ({
-			...post.data,
-			link: `/blog/${post.id}/`,
-		})),
-	});
+export function GET(context) {
+  return rss({
+    title: 'HUNT ARTS – Savage edits & AI',
+    description: 'Savage edits. Savage collabs. Savage AI. From Uganda with zero fucks.',
+    site: context.site,  // This now works because site is in config
+    items: [],  // Add real items later (e.g., from blog posts)
+  });
 }
