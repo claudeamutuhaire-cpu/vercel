@@ -1,50 +1,142 @@
 ---
+import SoundEffects from '../components/SoundEffects.astro';
 ---
 
-<html lang="en" class="dark">
-  <head>
-    <!-- Paste the head code above here -->
-  </head>
-  <body class="bg-black min-h-screen flex flex-col items-center justify-center p-4 text-white">
-    <h1 class="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-green)] via-[var(--color-electric-purple)] to-[var(--color-blood-red)] animate-pulse glitch">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HUNT ARTS – 22nd Century Savage</title>
+
+  <!-- Tailwind CDN + insane custom config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            neonGreen: '#39FF14',
+            electricPurple: '#C300FF',
+            bloodRed: '#FF0033',
+            voidBlack: '#0a0a0a',
+          },
+          animation: {
+            glitch: 'glitch 1.5s infinite',
+            bleed: 'bleed 2s infinite',
+            scan: 'scan 8s linear infinite',
+          },
+          keyframes: {
+            glitch: {
+              '0%, 100%': { transform: 'translate(0)' },
+              '20%': { transform: 'translate(-5px, 5px)' },
+              '40%': { transform: 'translate(5px, -5px)' },
+              '60%': { transform: 'translate(-3px, 3px)' },
+            },
+            bleed: {
+              '0%, 100%': { boxShadow: '0 0 30px #FF0033' },
+              '50%': { boxShadow: '0 0 80px #FF0033' },
+            },
+            scan: {
+              '0%': { top: '-100%' },
+              '50%': { top: '100%' },
+              '100%': { top: '-100%' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Google font + cursor -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    body { 
+      margin: 0; 
+      overflow-x: hidden; 
+      background: #000; 
+      color: #fff; 
+      font-family: 'Orbitron', sans-serif; 
+      cursor: none; 
+    }
+    .custom-cursor {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 2px solid #39FF14;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transition: all 0.1s ease-out;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Custom cursor trail -->
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Background video or animated canvas -->
+  <video 
+    autoplay 
+    loop 
+    muted 
+    playsinline 
+    class="fixed inset-0 w-full h-full object-cover opacity-40 z-0"
+  >
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-glitchy-digital-background-123-small.mp4" type="video/mp4"/>
+  </video>
+
+  <!-- Scanline overlay -->
+  <div class="fixed inset-0 pointer-events-none z-10" style="background: linear-gradient(transparent, rgba(255,0,51,0.1), transparent); animation: scan 8s linear infinite;"></div>
+
+  <!-- Main portal -->
+  <div class="relative z-20 min-h-screen flex flex-col items-center justify-center px-6 py-20 text-center">
+    <h1 class="text-8xl md:text-[15rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-neonGreen via-electricPurple to-bloodRed animate-glitch tracking-[-0.1em]">
       HUNT ARTS
     </h1>
-    
-    <p class="text-2xl md:text-4xl mt-8 text-center max-w-3xl font-grotesk">
-      Savage edits. Savage collabs. Savage AI.<br>From Uganda with zero fucks.
+
+    <p class="text-4xl md:text-6xl mt-8 mb-16 max-w-5xl leading-tight glitch-text">
+      Savage edits. Savage AI. Savage future.<br/>
+      From Uganda with zero fucks given.
     </p>
-    
-    <div class="mt-12 flex flex-col sm:flex-row gap-6">
-      <a 
-        href="https://wa.me/256752881573?text=Yo%20beast%2C%20roast%20me%20or%20edit%20this%20shit" 
-        class="px-10 py-5 bg-[var(--color-neon-green)] text-black font-bold rounded-full hover:bg-[var(--color-electric-purple)] hover:text-white transition-all duration-300 shadow-2xl text-xl"
-      >
-        Chat with the beast
+
+    <!-- Portal buttons -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <a href="/bot" class="portal-btn bg-neonGreen/20 hover:bg-neonGreen/40 backdrop-blur-xl border border-neonGreen/50 text-neonGreen font-black text-3xl p-10 rounded-3xl transition-all duration-500 hover:scale-110 hover:shadow-[0_0_60px_#39FF14] hover:animate-pulse">
+        BEAST BOT
       </a>
-      
-      <button class="px-10 py-5 border-4 border-[var(--color-electric-purple)] text-[var(--color-electric-purple)] font-bold rounded-full hover:bg-[var(--color-blood-red)] hover:text-white transition-all text-xl">
-        Drop your handle – collab now
-      </button>
+      <a href="/edits" class="portal-btn bg-electricPurple/20 hover:bg-electricPurple/40 backdrop-blur-xl border border-electricPurple/50 text-electricPurple font-black text-3xl p-10 rounded-3xl transition-all duration-500 hover:scale-110 hover:shadow-[0_0_60px_#C300FF]">
+        EDITS GALLERY
+      </a>
+      <a href="/collabs" class="portal-btn bg-bloodRed/20 hover:bg-bloodRed/40 backdrop-blur-xl border border-bloodRed/50 text-bloodRed font-black text-3xl p-10 rounded-3xl transition-all duration-500 hover:scale-110 hover:shadow-[0_0_60px_#FF0033]">
+        COLLABS WALL
+      </a>
+      <a href="/paid" class="portal-btn bg-gradient-to-r from-neonGreen to-electricPurple/30 hover:from-neonGreen hover:to-electricPurple backdrop-blur-xl border border-white/30 text-white font-black text-3xl p-10 rounded-3xl transition-all duration-500 hover:scale-110 hover:shadow-[0_0_80px_#fff]">
+        PAID BEAST MODE
+      </a>
     </div>
 
-    <!-- Basic glitch animation (custom, since Tailwind doesn't have it built-in) -->
-    <style>
-      .glitch {
-        animation: glitch 2s infinite;
-        text-shadow: 
-          0.05em 0 0 var(--color-electric-purple),
-          -0.03em -0.04em 0 var(--color-blood-red),
-          0.025em 0.04em 0 var(--color-blood-red);
-      }
-      @keyframes glitch {
-        0% { text-shadow: 0.05em 0 0 var(--color-electric-purple), -0.03em -0.04em 0 var(--color-blood-red); }
-        14% { text-shadow: 0.05em 0 0 var(--color-electric-purple), -0.03em -0.04em 0 var(--color-blood-red); }
-        15% { text-shadow: -0.05em 0 0 var(--color-blood-red), 0.03em 0.04em 0 var(--color-electric-purple); }
-        49% { text-shadow: -0.05em 0 0 var(--color-blood-red), 0.03em 0.04em 0 var(--color-electric-purple); }
-        50% { text-shadow: 0.05em 0 0 var(--color-neon-green), -0.03em -0.04em 0 var(--color-electric-purple); }
-        99% { text-shadow: 0.05em 0 0 var(--color-neon-green), -0.03em -0.04em 0 var(--color-electric-purple); }
-        100% { text-shadow: 0.05em 0 0 var(--color-electric-purple), -0.03em -0.04em 0 var(--color-blood-red); }
-      }
-    </style>
-  </body>
+    <!-- WhatsApp CTA -->
+    <a 
+      href="https://wa.me/256752881573" 
+      class="mt-20 inline-block px-20 py-10 bg-gradient-to-r from-bloodRed via-electricPurple to-neonGreen text-black font-black text-4xl rounded-full animate-bleed shadow-[0_0_100px_rgba(255,0,51,0.8)] hover:shadow-[0_0_150px_rgba(57,255,20,0.9)] transition-all duration-500"
+    >
+      ENTER THE VOID – CHAT NOW
+    </a>
+  </div>
+
+  <!-- Cursor trail script -->
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+  </script>
+
+  <SoundEffects />
+</body>
 </html>
